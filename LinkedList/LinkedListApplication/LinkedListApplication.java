@@ -1,15 +1,15 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-
-package com.mycompany.linkedlistapplication;
+package LinkedListApplication;
 
 /**
  *
  * @author chala
  */
 public class LinkedListApplication {
-
+    
     private Node head;
     
     LinkedListApplication(){
@@ -27,50 +27,50 @@ public class LinkedListApplication {
         
         Node current = head;
         
-        while(current.next!=null){
+        while(current.next != null){
             current = current.next;
         }
         
         current.next = newNode;
-        
     }
     
     public void insertElementAtStart(int data){
         
-        Node newNode = new Node(data);
+        Node newNode = new Node(data); 
         
         newNode.next = head;
         
         head = newNode;
-        
     }
     
     public void displayList(){
+        
         if(head == null){
-            System.out.println("Linked list is empty");
+            System.out.println("LinkedList is Empty...");
             return;
         }
         
         Node current = head;
         
-        System.out.println("\nLinked List Elements: ");
+        System.out.println("Linked List Elements: ");
         
-        while(current!=null){
+        while(current != null){
             System.out.print(current.data+" -> ");
-            
             current = current.next;
         }
         
-        System.out.print(" Null");
+        System.out.println("Null");
     }
     
     public boolean find(int data){
+        
         Node current = head;
         
-        while(current!=null){
+        while(current.next != null){
             if(current.data == data){
                 return true;
             }
+            
             current = current.next;
         }
         
@@ -78,6 +78,7 @@ public class LinkedListApplication {
     }
     
     public void delete(int data){
+        
         if(head == null){
             System.out.println("List is Empty! Nothing to delete");
             return;
@@ -93,10 +94,12 @@ public class LinkedListApplication {
         Node current = head;
         Node prev = null;
         
-        while(current!=null && current.data!=data){
+        while(current != null &&  current.data != data){
+            
             prev = current;
             
             current = current.next;
+            
         }
         
         if(current == null){
@@ -104,9 +107,10 @@ public class LinkedListApplication {
             return;
         }
         
-        prev.next  = current.next;
+        prev.next = current.next;
         
         System.out.println(data+" deleted successfully..");
+        
     }
     
     public static void main(String[] args){
@@ -115,15 +119,17 @@ public class LinkedListApplication {
         list.insertElement(10);
         list.insertElement(20);
         list.insertElement(30);
+        list.insertElement(40);
+        list.insertElement(50);
         
         list.displayList();
         
-        list.insertElementAtStart(40);
+        list.insertElementAtStart(85);
         
         list.displayList();
         
-        System.out.println("Is 20 present ?"+list.find(20));
-        System.out.println("Is 50 present ?"+list.find(50));
+        System.out.println("Is 20 present ? "+list.find(20));
+        System.out.println("Is 50 present ? "+list.find(60));
         
         list.delete(5);
         list.delete(20);
