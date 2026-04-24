@@ -25,7 +25,7 @@ public class SeatBooking {
         
         Seat current = head;
         
-        while(current.next != null){
+        while(current != null){
             if(current.passengerName == null){
                 current.passengerName = name;
                 System.out.println("Seat "+current.seatNumber+" booked for "+name);
@@ -42,10 +42,11 @@ public class SeatBooking {
         
         Seat current = head;
         
-        while(current.next != null){
+        while(current != null){
             if(name.equals(current.passengerName)){
                 current.passengerName = null;
                 System.out.println("Booking cancelled for: "+name);
+                return;
             }
             
             current = current.next;
@@ -58,7 +59,7 @@ public class SeatBooking {
         
         Seat current = head;
         
-        while(current.next != null){
+        while(current != null){
             if(current.passengerName == null){
                 System.out.println("First seat available at: "+current.seatNumber);
                 return;
@@ -75,7 +76,7 @@ public class SeatBooking {
         Seat current = head;
         boolean found = false;
         
-        while(current.next != null){
+        while(current != null){
             if(current.passengerName == null){
                 System.out.print(current.seatNumber+" ");
                 found = true;
